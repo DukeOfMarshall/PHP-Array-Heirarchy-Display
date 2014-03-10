@@ -27,6 +27,7 @@ A quick and simple class to easily display single or multidimensional arrays in 
 
 
 Example:
+========
 ```PHP
 require_once('Arrays.class.php');
 $arr_func = new Array_Functions();
