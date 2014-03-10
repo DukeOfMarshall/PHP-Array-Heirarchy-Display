@@ -26,6 +26,12 @@ A quick and simple class to easily display single or multidimensional arrays in 
 </html>
 
 
+Example:
 ```PHP
-Test
+require_once('Arrays.class.php');
+$arr_func = new Array_Functions();
+
+$arr_func->display_hierarchy($array);
+$arr_func->display_hierarchy($php_object);
+$arr_func->display_hierarchy($json);
 ```
