@@ -20,14 +20,14 @@
 
 class Array_Functions {
 	public $number_of_tabs 	= 3; # The default number of tabs to use when branching out
-	private $counter 		    = 0; # The counter to use for the number of tab iterations to use on the current branch
+	private $counter 		= 0; # The counter to use for the number of tab iterations to use on the current branch
 	
 	public $display_square_brackets 	= TRUE; 
-	public $display_squiggly_brackets = FALSE;
-	public $display_parenthesis 		  = FALSE;
+	public $display_squiggly_brackets 	= FALSE;
+	public $display_parenthesis 		= FALSE;
 	
 	public $display_apostrophe	= TRUE;
-	public $display_quotes		  = FALSE;
+	public $display_quotes		= FALSE;
 	
 	public function __construct(){
 	}
@@ -55,6 +55,13 @@ class Array_Functions {
 		# Convert the input to a JSON and then back to an array just to make sure we know what we're working with
 		$array = $this->convert_object_to_array($array);
 		
+		# Test for JSON and if so, decode it to an associative array
+		if(gettype($array) != 'array'){
+			if(substr($array, 0, 1) == '{' || substr($array, 1, 1) == '{'){
+				$array = json_decode($array, TRUE);
+			}
+		}
+		
 		# If the $array variable is still not an array, then error out.
 		# We're not going to fool around with your stupidity
 		if(gettype($array) != 'array'){
@@ -67,19 +74,19 @@ class Array_Functions {
 			if(strtolower($key_bookends) == 'square'){
 				$this->display_square_brackets 		= TRUE;
 				$this->display_squiggly_brackets 	= FALSE;
-				$this->display_parenthesis 			  = FALSE;
+				$this->display_parenthesis 			= FALSE;
 			}elseif(strtolower($key_bookends) == 'squiggly'){
 				$this->display_square_brackets 		= TRUE;
 				$this->display_squiggly_brackets 	= TRUE;
-				$this->display_parenthesis 			  = FALSE;
+				$this->display_parenthesis 			= FALSE;
 			}elseif(strtolower($key_bookends) == 'parenthesis'){
 				$this->display_square_brackets 		= FALSE;
 				$this->display_squiggly_brackets 	= FALSE;
-				$this->display_parenthesis 		  	= TRUE;
+				$this->display_parenthesis 			= TRUE;
 			}elseif(!$key_bookends){
 				$this->display_square_brackets 		= FALSE;
 				$this->display_squiggly_brackets 	= FALSE;
-				$this->display_parenthesis 			  = FALSE;
+				$this->display_parenthesis 			= FALSE;
 			}
 		}
 		
@@ -87,13 +94,13 @@ class Array_Functions {
 		# Establish the padding variables
 		if($key_padding != '' || !$key_padding){
 			if(strtolower($key_padding) == 'apostrophe'){
-				$this->display_apostrophe = TRUE;
+				$this->display_apostrophe 	= TRUE;
 				$this->display_quotes 		= FALSE;
 			}elseif(strtolower($key_padding) == 'quotes'){
-				$this->display_apostrophe = FALSE;
+				$this->display_apostrophe 	= FALSE;
 				$this->display_quotes 		= TRUE;
 			}elseif(!$key_padding){
-				$this->display_apostrophe = FALSE;
+				$this->display_apostrophe 	= FALSE;
 				$this->display_quotes 		= FALSE;
 			}
 		}		
