@@ -37,7 +37,7 @@ $arr_func->display_hierarchy($json);
 ```
 
 This will output something similar to:
-```TXT
+```TEXT
 total => 2
 page => 1
 per_page => 25
