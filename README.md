@@ -24,3 +24,8 @@ A quick and simple class to easily display single or multidimensional arrays in 
 
 </body>
 </html>
+
+
+```PHP
+Test
+```
