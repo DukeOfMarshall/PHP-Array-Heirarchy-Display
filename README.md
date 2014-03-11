@@ -5,6 +5,8 @@ A quick and simple class to easily display single or multidimensional arrays in 
 
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/01d76d43eb46f35590a0d763de33ec31 "githalytics.com")](http://githalytics.com/DukeOfMarshall/PHP-Array-Heirarchy-Display)
 
+[![PayPal donate button](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GBH93KNRNJ8AU "Show your appreciation with a donation")
+
 
 Example:
 ========
